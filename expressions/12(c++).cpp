@@ -10,5 +10,5 @@ int main(){
     s = s % 3600;
     mm = s/60;
     s = s % 60;
-    cout<<dd<<":"<<hh<<":"<<mm<<":"<<s;
+    printf("%.2d:%.2d:%.2d:%.2d",dd,mm,hh,s);
 }
