@@ -9,7 +9,7 @@ bool isPrime(int n){
 	return true;
 }
 int nextPrime(int n){
-	for(int i=n+1;i<n*n;i++){
+	for(int i=n+1;i<2*n;i++){
 		if(isPrime(i)) return i;
 	}
 }
