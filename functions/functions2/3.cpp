@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<cstring>
 using namespace std;
 int anytoBaseten(int n,int base){
 	int sum = 0;
@@ -10,18 +11,23 @@ int anytoBaseten(int n,int base){
 	return sum;
 }
 int tentoAnybase(int n,int base){
-	int newbase=0,p=1,r=1;
-	for(int i=0;i<n;i++){
-		r = n%base;
-		newbase = newbase + r;
-		n = n/base;		
+	int sol=0,r=0,i = 1;
+	while(n!=0){
+	    r = n%base;
+	    n = n/base;
+	    sol += r * i;
+	    i *= 10;
 	}
-	return newbase;
+	return sol;
 }
 int convertBase(int base1,int n,int base2){
-	int b = anytoBaseten(n,base1);
-	int c = tentoAnybase(b,base2);
-	return c;	
+	if(base1 == 10 && base2 >= 2 || base2 <= 16 && base2 != 10)return tentoAnybase(n,base2);
+	else if(base2 == 10 && base1 >= 2 || base1 <= 16 && base1 != 10) return anytoBaseten(n,base1);
+	else{
+		int b = anytoBaseten(n,base1);
+		int c = tentoAnybase(b,base2);
+		return c;
+	}	
 }
 int main(){
 	int b1,b2,n;
