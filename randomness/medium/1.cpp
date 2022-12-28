@@ -9,13 +9,11 @@ string randomLicensePlate(){
 		for(int j = 0;j<4;j++){
 			int r = rand() % 52;
             char base = (r < 26) ? 'A' : 'a';
-            plate += (char) (base + r % 26);
+            plate += (char)(base + r % 26);
 		}
-		int x = 1;
 		for(int j = 3;j<6;j++){
-			int num = rand() % 10;
-			plate += num * x;
-			x *= 10;
+			char c = rand()%(57-48) + 48;
+			plate += c;
 		}
 		
 	}
@@ -25,13 +23,10 @@ string randomLicensePlate(){
             char base = (r < 26) ? 'A' : 'a';
             plate += (char) (base + r % 26);
 		}
-		int x =1;
 		for(int j = 4;j<7;j++){
-			int num = rand() % 10;
-			plate += num*x;
-			x*=10;
+			char c = rand()%(57-48) + 48;
+			plate += c;
 		}
-		
 	}
 	return plate;
 }
