@@ -13,6 +13,7 @@ string removeMysteryLength(string input){
 		    k *= 10;
 		    if(temp == newlen) newstr = input.erase(newlen,len);
 		}
+		else return "error";
 	}
 	return newstr;
 }
