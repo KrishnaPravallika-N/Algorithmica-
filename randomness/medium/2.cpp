@@ -24,11 +24,11 @@ int getResult(){
 
 int main(){
 	int cwin = 0,close=0,cdraw = 0;
-	for(int i=1;i<10;i++){
-		int x =getResult();
+	for(int i=1;i<=10;i++){
+		int x = getResult();
 		if(x == 1)cwin++;
-		if(x == 0)close++;
+		else if(x == 0)close++;
 		else cdraw++;
 	}
-	cout<<cwin<<" "<<close<<" "<<cdraw;
+	cout<<"no of wins "<<cwin<<"\n"<<"no of losses "<<close<<"\n"<<"no of draws "<<cdraw;
 }

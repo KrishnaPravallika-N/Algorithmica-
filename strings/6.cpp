@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 bool isInteger(string input){
-	int len = input.length();
+	int len = input.length(),count = 0;
 	for(int i=0;i<len;i++){
-		if(isdigit(input[i]) && len>=1){
-			if(input[i] == '+' || input[i] == '-')return true;
-			else return true;
-		}
+		if(input[i]>=0 || input[i]<=9)count++;
+	}
+	for(int i=0;i<len;i++){
+		if(input[i] == '+' || input[i] == '-' && count >= 1)return true;
 		else return false;
 	}
 }
