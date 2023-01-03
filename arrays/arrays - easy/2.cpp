@@ -1,26 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
-//string testcase(int n){
-//	string res = "";
-//	srand(time(0));
-//	for(int i = 0;i<n;i++){
-//		res += (char)('a' + rand() % 26);
-//	}
-//	return res;
-//}
-int uniqueChar(string inp){
-	int count[26] = {0};
+int longestPalLen(string inp){
 	int size = inp.length();
+	int len = 0,max = 0;
+	int count[52] = {0};
 	for(int i = 0; i<size ; i++){
-		count[inp[i] - 'a']++;
+		count[inp[i] - 'A']++;
 	}
-	for(int i =0;i<size;i++){
-		if(count[inp[i] - 'a'] == 1) return i;
+	for(int i =0;i<52;i++){
+		int x = count[i];
+		if(x % 2 == 0){
+			len = len + x;
+		}
+		else if(count[i] % 2 != 0){
+			if(count[i] > max) {
+				max = count[i];	
+			}
+		}
 	}
-	return -1;
+	return len+max;
 }
 int main(){
 	 string x;
 	 cin>>x;
-	 cout<<uniqueChar(x);
+	 cout<<longestPalLen(x);
 }
