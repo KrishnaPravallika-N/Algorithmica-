@@ -1,11 +1,3 @@
-//============================================================================
-// Name        : file_2.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <iostream>
 #include<map>
 #include <fstream>
@@ -18,8 +10,7 @@ void letterFrequency(string in_name) {
 	map<char,int>freq;
 	while(getline(fin, line)) {
 		for(int i=0;i<line.length();i++){
-			if (freq.find(toupper(line[i])) == freq.end()) freq.insert(make_pair(toupper(line[i]), 1));
-        	else freq[toupper(line[i])]++;
+			if (isalpha(line[i]) && freq.find(toupper(line[i])) == freq.end()) freq.insert(make_pair(toupper(line[i]), 1));
     	}
 		for (auto& it : freq) {
             cout << it.first << ' ' << it.second << '\n';
